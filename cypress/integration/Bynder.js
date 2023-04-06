@@ -2,7 +2,7 @@
 
 
 describe('Bynder login scenario', () => {
-    it('Does not do much!', () => {
+    it('login and log out scenario', () => {
         cy.visit('http://wave-trial.getbynder.com');
         cy.get('#inputEmail').type('qa-assignment');
         cy.get('#inputPassword').type('qa-Bynder2023!');
@@ -11,6 +11,8 @@ describe('Bynder login scenario', () => {
         cy.get('.profile').click().get('.logout form button').click();
         cy.get('.cbox_messagebox').should('include.text', 'You have successfully logged out.');
 
+        cy.get('#inputEmail').clear();
+        cy.get('#inputPassword').clear();
         cy.get('#inputEmail').type('testingdemo12343');
         cy.get('#inputPassword').type('qa-Bynder2023!');
         cy.get("button[type='submit']").click();
